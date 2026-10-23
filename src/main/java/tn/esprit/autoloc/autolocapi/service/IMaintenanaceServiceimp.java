@@ -1,32 +1,41 @@
+
 package tn.esprit.autoloc.autolocapi.service;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.autolocapi.domain.Maintenance;
+import tn.esprit.autoloc.autolocapi.repository.MaintenanceRepository;
 
 import java.util.List;
 
-public class IMaintenanaceServiceimp implements IMaintenanceService{
+@Service
+@AllArgsConstructor
+public class IMaintenanaceServiceimp implements IMaintenanceService {
+
+    private final MaintenanceRepository maintenanceRepository;
+
     @Override
     public Maintenance ajouterMaintenance(Maintenance maintenance) {
-        return null;
+        return maintenanceRepository.save(maintenance);
     }
 
     @Override
     public Maintenance modifierMaintenance(Maintenance maintenance) {
-        return null;
+        return maintenanceRepository.save(maintenance);
     }
 
     @Override
     public List<Maintenance> afficherToutesMaintenances() {
-        return List.of();
+        return maintenanceRepository.findAll();
     }
 
     @Override
     public Maintenance afficherMaintenanceByID(Long id) {
-        return null;
+        return maintenanceRepository.findById(id).orElse(null);
     }
 
     @Override
     public void supprimerMaintenance(Long id) {
-
+        maintenanceRepository.deleteById(id);
     }
 }

@@ -1,12 +1,13 @@
 package tn.esprit.autoloc.autolocapi.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.autoloc.autolocapi.domain.Reservation;
 import tn.esprit.autoloc.autolocapi.service.IReservationService;
 
 import java.util.List;
-
+@Tag(name = "Gestion de reservation", description = "Crud")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/reservations")

@@ -33,7 +33,7 @@ public class Contrat {
     @OneToOne
     @JoinColumn(
             name = "id_reservation",
-            nullable = false,
+
             unique = true
     )
     private Reservation reservation;

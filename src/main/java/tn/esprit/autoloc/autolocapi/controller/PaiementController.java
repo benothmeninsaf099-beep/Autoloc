@@ -1,12 +1,13 @@
 package tn.esprit.autoloc.autolocapi.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.autoloc.autolocapi.domain.Paiement;
 import tn.esprit.autoloc.autolocapi.service.IPaiementService;
 
 import java.util.List;
-
+@Tag(name = "Gestion de paiement", description = "Crud")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/paiements")

@@ -1,32 +1,41 @@
+
 package tn.esprit.autoloc.autolocapi.service;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.autolocapi.domain.Paiement;
+import tn.esprit.autoloc.autolocapi.repository.PaiementRepository;
 
 import java.util.List;
 
-public class IPaiementServiceimp implements IPaiementService{
+@Service
+@AllArgsConstructor
+public class IPaiementServiceimp implements IPaiementService {
+
+    private final PaiementRepository paiementRepository;
+
     @Override
     public Paiement ajouterPaiement(Paiement paiement) {
-        return null;
+        return paiementRepository.save(paiement);
     }
 
     @Override
     public Paiement modifierPaiement(Paiement paiement) {
-        return null;
+        return paiementRepository.save(paiement);
     }
 
     @Override
     public List<Paiement> afficherTousPaiements() {
-        return List.of();
+        return paiementRepository.findAll();
     }
 
     @Override
     public Paiement afficherPaiementByID(Long id) {
-        return null;
+        return paiementRepository.findById(id).orElse(null);
     }
 
     @Override
     public void supprimerPaiement(Long id) {
-
+        paiementRepository.deleteById(id);
     }
 }

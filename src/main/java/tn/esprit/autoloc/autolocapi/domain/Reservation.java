@@ -25,11 +25,11 @@ public class Reservation {
     private StatutReservation statut;
 
     @ManyToOne
-    @JoinColumn(name = "id_client", nullable = false)
+    @JoinColumn(name = "idClient")
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "id_vehicule", nullable = false)
+    @JoinColumn(name = "idVehicule")
     private Vehicule vehicule;
 
     @OneToOne(mappedBy = "reservation")

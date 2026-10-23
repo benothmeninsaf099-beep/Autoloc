@@ -1,32 +1,41 @@
+
 package tn.esprit.autoloc.autolocapi.service;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.autolocapi.domain.Vehicule;
+import tn.esprit.autoloc.autolocapi.repository.VehiculeRepository;
 
 import java.util.List;
 
-public class IVehiculeServiceimp implements IVehiculeService{
+@Service
+@AllArgsConstructor
+public class IVehiculeServiceimp implements IVehiculeService {
+
+    private final VehiculeRepository vehiculeRepository;
+
     @Override
     public Vehicule ajouterVehicule(Vehicule vehicule) {
-        return null;
+        return vehiculeRepository.save(vehicule);
     }
 
     @Override
     public Vehicule modifierVehicule(Vehicule vehicule) {
-        return null;
+        return vehiculeRepository.save(vehicule);
     }
 
     @Override
     public List<Vehicule> afficherTousVehicules() {
-        return List.of();
+        return vehiculeRepository.findAll();
     }
 
     @Override
     public Vehicule afficherVehiculeByID(Long id) {
-        return null;
+        return vehiculeRepository.findById(id).orElse(null);
     }
 
     @Override
     public void supprimerVehicule(Long id) {
-
+        vehiculeRepository.deleteById(id);
     }
 }

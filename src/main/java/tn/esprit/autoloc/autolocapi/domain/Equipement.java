@@ -21,7 +21,7 @@ public class Equipement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEquipement;
 
-    @Column(nullable = false, length = 100)
+    @Column( length = 100)
     private String libelle;
 
     @ManyToMany(mappedBy = "equipements", fetch = FetchType.LAZY)

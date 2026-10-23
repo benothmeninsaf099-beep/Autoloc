@@ -20,19 +20,19 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idClient;
 
-    @Column(nullable = false, length = 100)
+    @Column( length = 100)
     private String nom;
 
-    @Column(nullable = false, length = 100)
+    @Column( length = 100)
     private String prenom;
 
-    @Column(nullable = false, length = 150)
+    @Column( length = 150)
     private String email;
 
-    @Column(nullable = false, length = 20)
+    @Column( length = 20)
     private String telephone;
 
-    @Column(nullable = false, length = 50)
+    @Column(length = 50)
     private String numPermis;
 
     private LocalDate dateInscription;

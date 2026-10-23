@@ -1,32 +1,41 @@
+
 package tn.esprit.autoloc.autolocapi.service;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.autolocapi.domain.Contrat;
+import tn.esprit.autoloc.autolocapi.repository.ContratRepository;
 
 import java.util.List;
 
-public class IContratServiceimp implements IContratService{
+@Service
+@AllArgsConstructor
+public class IContratServiceimp implements IContratService {
+
+    private final ContratRepository contratRepository;
+
     @Override
     public Contrat ajouterContrat(Contrat contrat) {
-        return null;
+        return contratRepository.save(contrat);
     }
 
     @Override
     public Contrat modifierContrat(Contrat contrat) {
-        return null;
+        return contratRepository.save(contrat);
     }
 
     @Override
     public List<Contrat> afficherToutesContrat() {
-        return List.of();
+        return contratRepository.findAll();
     }
 
     @Override
     public Contrat afficherContratByID(Long id) {
-        return null;
+        return contratRepository.findById(id).orElse(null);
     }
 
     @Override
     public void supprimerContrat(Long id) {
-
+        contratRepository.deleteById(id);
     }
 }

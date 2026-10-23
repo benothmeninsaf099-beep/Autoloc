@@ -1,12 +1,13 @@
 package tn.esprit.autoloc.autolocapi.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.autoloc.autolocapi.domain.Agence;
 import tn.esprit.autoloc.autolocapi.service.IAgenceService;
 
 import java.util.List;
-
+@Tag(name = "Gestion de agence")
 @RestController
 @AllArgsConstructor
 @RequestMapping ("/agences")

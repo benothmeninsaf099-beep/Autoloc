@@ -19,33 +19,33 @@ public class Vehicule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVehicule;
 
-    @Column(nullable = false, length = 50)
+    @Column( length = 50)
     private String immatriculation;
 
-    @Column(nullable = false, length = 100)
+    @Column( length = 100)
     private String marque;
 
-    @Column(nullable = false, length = 100)
+    @Column( length = 100)
     private String modele;
 
     @Enumerated(EnumType.STRING)
     private CategorieVehicule categorie;
 
-    @Column(nullable = false)
+    @Column()
     private BigDecimal tarifJournalier;
 
     @Enumerated(EnumType.STRING)
     private StatutVehicule statut;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_agence", nullable = false)
+    @JoinColumn(name = "idAgence")
     private Agence agence;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "vehicule_equipement",
-            joinColumns = @JoinColumn(name = "id_vehicule"),
-            inverseJoinColumns = @JoinColumn(name = "id_equipement")
+            joinColumns = @JoinColumn(name = "idVehicule"),
+            inverseJoinColumns = @JoinColumn(name = "idEquipement")
     )
     private List<Equipement> equipements;
 

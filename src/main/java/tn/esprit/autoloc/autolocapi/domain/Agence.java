@@ -20,16 +20,16 @@ public class Agence {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAgence;
 
-    @Column(nullable = false, length = 100)
+    @Column(length = 100)
     private String nom;
 
-    @Column(nullable = false, length = 100)
+    @Column( length = 100)
     private String ville;
 
-    @Column(nullable = false, length = 255)
+    @Column( length = 255)
     private String adresse;
 
-    @Column(nullable = false, length = 20)
+    @Column( length = 20)
     private String telephone;
 
     @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)

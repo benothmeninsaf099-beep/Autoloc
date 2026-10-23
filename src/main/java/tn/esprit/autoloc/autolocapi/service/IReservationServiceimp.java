@@ -1,32 +1,41 @@
+
 package tn.esprit.autoloc.autolocapi.service;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.autolocapi.domain.Reservation;
+import tn.esprit.autoloc.autolocapi.repository.ReservationRepository;
 
 import java.util.List;
 
-public class IReservationServiceimp implements IReservationService{
+@Service
+@AllArgsConstructor
+public class IReservationServiceimp implements IReservationService {
+
+    private final ReservationRepository reservationRepository;
+
     @Override
     public Reservation ajouterReservation(Reservation reservation) {
-        return null;
+        return reservationRepository.save(reservation);
     }
 
     @Override
     public Reservation modifierReservation(Reservation reservation) {
-        return null;
+        return reservationRepository.save(reservation);
     }
 
     @Override
     public List<Reservation> afficherToutesReservations() {
-        return List.of();
+        return reservationRepository.findAll();
     }
 
     @Override
     public Reservation afficherReservationByID(Long id) {
-        return null;
+        return reservationRepository.findById(id).orElse(null);
     }
 
     @Override
     public void supprimerReservation(Long id) {
-
+        reservationRepository.deleteById(id);
     }
 }
