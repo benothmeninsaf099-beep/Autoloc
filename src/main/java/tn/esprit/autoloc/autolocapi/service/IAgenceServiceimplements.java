@@ -37,6 +37,7 @@ private final AgenceRepository agenceRepository;
 
     }
     @Override
+    @Transactional
     public Agence ajouterAgenceEtAffecterVehicules(Agence agence) {
         agenceRepository.save(agence);
         agence.getVehicules().forEach(vehicule -> {

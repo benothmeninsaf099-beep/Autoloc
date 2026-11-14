@@ -1,6 +1,7 @@
 
 package tn.esprit.autoloc.autolocapi.service;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.autolocapi.domain.Agence;
@@ -41,7 +42,7 @@ public class IEmployeServiceimp implements IEmployeService {
         employeRepository.deleteById(id);
     }
     @Override
-
+    @Transactional
     public Employe desaffecterEmploye(Long idEmploye) {
         Employe employe = employeRepository.findById(idEmploye).get();
         employe.setAgence(null);
@@ -49,7 +50,7 @@ public class IEmployeServiceimp implements IEmployeService {
     }
 
     @Override
-
+    @Transactional
     public Employe affecterEmploye(Long idEmploye, Long idAgence) {
         Employe employe = employeRepository.findById(idEmploye).get();
         Agence agence = agenceRepository.findById(idAgence).get();

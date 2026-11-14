@@ -1,6 +1,7 @@
 
 package tn.esprit.autoloc.autolocapi.service;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.autolocapi.domain.Equipement;
@@ -42,7 +43,7 @@ public class IVehiculeServiceimp implements IVehiculeService {
         vehiculeRepository.deleteById(id);
     }
     @Override
-
+    @Transactional
     public Vehicule affecterEquipement(Long idVehicule, Long idEquipement) {
         Vehicule vehicule = vehiculeRepository.findById(idVehicule).get();
         Equipement equipement = equipementRepository.findById(idEquipement).get();
@@ -52,7 +53,7 @@ public class IVehiculeServiceimp implements IVehiculeService {
     }
 
     @Override
-
+    @Transactional
     public Vehicule desaffecterEquipement(Long idVehicule, Long idEquipement) {
         Vehicule vehicule = vehiculeRepository.findById(idVehicule).get();
         Equipement equipement = equipementRepository.findById(idEquipement).get();
